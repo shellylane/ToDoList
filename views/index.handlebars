@@ -1,0 +1,49 @@
+<div class="container">
+
+    <h1>To Do List</h1>
+
+    <ul>
+        {{#each todo}}
+        {{#unless this.completed}}
+        <li>
+            {{this.toDoItem}}
+            <button class="change-completed" data-id="{{this.id}}" data-completed="{{this.completed}}">
+                {{#if completed}}ADD BACK TO LIST{{else}}COMPLETE{{/if}}
+            </button>
+
+            <button class="delete-todo" data-id="{{this.id}}">DELETE</button>
+        </li>
+        {{/unless}}
+        {{/each}}
+    </ul>
+
+    <h2>Completed</h2>
+    <ul>
+        {{#each todo}}
+        {{#if this.completed}}
+        <li>
+            {{this.toDoItem}}
+            <button class="change-completed" data-id="{{this.id}}" data-completed="{{this.completed}}">
+                {{#if completed}}ADD BACK TO LIST{{else}}COMPLETE{{/if}}
+            </button>
+            <button class="delete-todo" data-id="{{this.id}}">DELETE</button>
+        </li>
+        {{/if}}
+        {{/each}}
+    </ul>
+
+
+    <h2>Add a To Do</h2>
+    <form class="create-form">
+
+        <div class="form-group">
+            <label for="ca">To Do:</label>
+            <input type="text" id="ca" name="name">
+        </div>
+
+        <button type="submit">Add To Do</button>
+    </form>
+
+
+
+</div>
